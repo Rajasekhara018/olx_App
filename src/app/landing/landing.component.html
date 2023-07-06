@@ -1,0 +1,124 @@
+<mat-drawer-container>
+  <mat-drawer-content>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <img
+        src="https://statics.olx.in/olxin/banners/hero_bg_in_v2@1x.png"
+        style="width: 1000px"
+      />
+    </div>
+    <br />
+    <br />
+
+    <div
+      *ngIf="
+        (dservice.searchData.length > 0 && !dservice.isSearchResFound) ||
+        dservice.isSearchResFound
+      "
+    >
+      <div
+        fxLayout="row row-wrap"
+        fxLayoutAlign="start start"
+        class="productWrapper"
+      >
+        <mat-card
+          class="catcard"
+          *ngFor="
+            let data of dservice.searchData
+              | searchPipe: dservice.searchText
+              | locationPipe: dservice.searchLocation:'location';
+            let i = &quot;index &quot;
+          "
+        >
+          <img
+            mat-card-image
+            src="{{ data.imgurl }}"
+            alt="Photo of the bike"
+            (click)="fullview(data)"
+          />
+          <mat-card-content>
+            <div fxLayout="row" fxLayoutAlign="space-between start">
+              <h4>Rs.{{ data.price }} /-</h4>
+              <button
+                mat-icon-button
+                *ngIf="!data.isFav"
+                (click)="addToWishList(data)"
+              >
+                <mat-icon>favorite_border</mat-icon>
+              </button>
+
+              <button
+                mat-icon-button
+                *ngIf="data.isFav"
+                (click)="remove(data, i)"
+              >
+                <mat-icon color="accent">favorite</mat-icon>
+              </button>
+            </div>
+            <p class="r-14">{{ data.model | titlecase }}</p>
+            <p class="m-16-06">{{ data.name | titlecase }}</p>
+            <p class="m-16-06">{{ data.location | titlecase }}</p>
+            <h6 class="desc">{{ data.description | titlecase }}</h6>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card
+          class="catcard"
+          *ngFor="
+            let data of dservice.seller | searchPipe: dservice.searchText;
+            let i = index
+          "
+        >
+          <img mat-card-image src="{{ data.imgurl }}" alt="Photo of the bike" />
+          <mat-card-content>
+            <div fxLayout="row" fxLayoutAlign="space-between start">
+              <h4>Rs.{{ data.price }} /-</h4>
+              <button
+                mat-icon-button
+                *ngIf="!data.isFav"
+                (click)="addToWishList(data)"
+              >
+                <mat-icon>favorite_border</mat-icon>
+              </button>
+
+              <button
+                mat-icon-button
+                *ngIf="data.isFav"
+                (click)="remove(data, i)"
+              >
+                <mat-icon color="accent">favorite</mat-icon>
+              </button>
+            </div>
+            <p class="r-14">{{ data.model | titlecase }}</p>
+            <p class="m-16-06">{{ data.name | titlecase }}</p>
+            <p class="m-16-06">{{ data.location | titlecase }}</p>
+            <h6 class="desc">{{ data.description | titlecase }}</h6>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <div
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      *ngIf="
+        dservice.seachPipeArray.length == 0 &&
+        dservice.searchData?.length == 0 &&
+        !dservice.isSearchResFound
+      "
+    >
+      <div style="text-align: center">
+        <h6>Oops... we didn't find anything that matches this search :(</h6>
+        <p class="r-14">
+          Try search for something more general, change the filters or check for
+          spelling mistakes
+        </p>
+        <mat-icon class="icon" color="warn">sentiment_dissatisfied</mat-icon>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+<!-- *ngIf="dservice.searchData?.length == 0 && !dservice.isSearchResFound" -->

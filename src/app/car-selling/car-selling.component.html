@@ -1,0 +1,67 @@
+<mat-drawer-container style="height:100%">
+  <mat-drawer-content style="padding: 120px">
+    <div style="margin-top: 24px">
+      <form
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        class="example-form"
+        name="registerForm"
+        #registerForm="ngForm"
+        (ngSubmit)="onClick(registerForm.value)"
+      >
+        <mat-form-field appearance="outline" style="width: 540px">
+          <mat-label>Registration number</mat-label>
+          <input
+            type="Registration"
+            matInput
+            placeholder="Ex.NU 21 REG"
+            name="Registration"
+            ngModel
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 540px">
+          <mat-label>Current Milage</mat-label>
+          <input
+            type="Milage"
+            matInput
+            placeholder="Ex.10000"
+            ngModel
+            name="Milage"
+          />
+        </mat-form-field>
+        <button
+          mat-raised-button
+          [disabled]="registerForm.form.invalid"
+          color="primary"
+          type="submit"
+        >
+          FIND DETAILS
+        </button>
+        <div *ngIf="istrue" style="margin-top: 10px">
+          <mat-divider style="width: 540px"></mat-divider>
+          <div fxLayoutAlign="center center">
+            <mat-icon
+              style="
+                margin: 20px;
+                font-size: 100px;
+                width: 100px;
+                height: 100px;
+                color: red;
+              "
+              >mood_bad</mat-icon
+            >
+          </div>
+          <h1 style="color: red" fxLayoutAlign="center center">
+            Sorry, we didn't recognise that registration.
+          </h1>
+          <p fxLayoutAlign="center center">
+            Please check that you have entered your registration correctly and try
+            again.
+          </p>
+        </div>
+      </form>
+    </div>
+    
+  </mat-drawer-content>
+</mat-drawer-container>
+  

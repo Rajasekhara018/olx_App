@@ -1,0 +1,58 @@
+@import '../../styles.scss';
+mat-tab-group {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  :host ::ng-deep .mat-tab-body-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mat-tab-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  ::ng-deep .mat-tab-body-content {
+    height: auto !important;
+    padding: 2px;
+  }
+  
+  :host ::ng-deep mat-ink-bar {
+    display: none;
+  }
+  
+  ::ng-deep .mat-tab-header {
+    margin-right: 20px !important;
+    
+    border-bottom: none !important;
+  }
+  
+  :host ::ng-deep .mat-tab-labels {
+    flex-direction: column;
+
+  }
+  
+  ::ng-deep .mat-tab-label {
+    text-align: left !important;
+    justify-content: left !important;
+  }
+  
+ 
+  :host ::ng-deep.mat-tab-label.mat-tab-label-active {
+    padding: 0 16px !important;
+    border-left: solid 5px rgb(238,84,45);
+    color: rgba(0, 0, 0, 1) !important;
+    background-color:rgb(231,231,231);
+  }
+
+.innerCard{
+  margin-top: 25px;
+  width: 400px;
+  height: 350px;
+  padding: 40px;
+}

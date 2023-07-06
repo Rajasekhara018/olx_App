@@ -1,0 +1,28 @@
+<div *ngIf="dservice.wlData.length > 0">
+  <div
+    fxLayout="row row-wrap"
+    fxLayoutAlign="start start"
+    class="productWrapper"
+  >
+    <mat-card class="catcard" *ngFor="let data of dservice.wlData">
+      <img mat-card-image src="{{ data.imgurl }}" alt="Photo of the bike" />
+      <mat-card-content>
+        <div fxLayout="row" fxLayoutAlign="space-between start">
+          <h4>Rs.{{ data.price }} /-</h4>
+          <button mat-icon-button (click)="remove(data)" color="primary">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+        <p class="r-14">{{ data.model | titlecase }}</p>
+        <p class="m-16-06">{{ data.name | titlecase }}</p>
+        <h6 class="desc">{{ data.description | titlecase }}</h6>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<div *ngIf="dservice.wlData.length == 0">
+  <img
+    src="../../assets/wishlist_image/wishlist_empty.svg"
+    style="width: 100%; height: 650px"
+  />
+</div>

@@ -1,0 +1,129 @@
+<mat-toolbar style="justify-content: center" color="warn">
+  <div
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    fxLayoutGap="24px"
+    style="width: 100%"
+  >
+    <button
+      mat-button
+      [routerLink]="['/landing']"
+      [routerLinkActive]="['active']"
+    >
+      HOME
+    </button>
+    <button
+      mat-button
+      [routerLink]="['/bikes']"
+      [routerLinkActive]="['active']"
+    >
+      BIKES
+    </button>
+    <button mat-button [routerLink]="['/cars']" [routerLinkActive]="['active']">
+      CARS
+    </button>
+    <button
+      mat-button
+      [routerLink]="['/mobiles']"
+      [routerLinkActive]="['active']"
+    >
+      MOBILES
+    </button>
+    <button
+      mat-button
+      [routerLink]="['/homes']"
+      [routerLinkActive]="['active']"
+    >
+      HOUSES
+    </button>
+    <button
+      mat-button
+      [routerLink]="['/electronics']"
+      [routerLinkActive]="['active']"
+    >
+      APPLIANCES
+    </button>
+  </div>
+</mat-toolbar>
+<!--------------------------------------------second toolbar-------------------------------------->
+<mat-toolbar style="justify-content: center">
+  <div
+    fxLayout="row"
+    fxLayoutAlign="center center"
+    fxLayoutGap="24px"
+    style="width: 1000px"
+  >
+    <div fxLayout="column" fxLayoutAlign="start start">
+      <img
+        src="https://logodownload.org/wp-content/uploads/2016/10/olx-logo-13.png"
+        style="height: 24px"
+        routerLink="/bannercard"
+      />
+    </div>
+    <div fxLayout="row">
+      <button mat-button color="primary" routerLink="/carselling">
+        SELL YOUR CAR
+      </button>
+      <button mat-button color="primary" routerLink="/reviews">REVIEWS</button>
+    </div>
+    <!-- <mat-form-field class="example-form-field" appearance="fill">
+      <input matInput type="text" placeholder="LOCATION" name="se" #se [(ngModel)]="dservice.searchLocation" />
+      <button mat-button matSuffix (click)="locationSearch(se.value)">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field> -->
+
+    <!-- <mat-form-field class="example-form-field" appearance="fill">
+      <input
+        matInput
+        type="text"
+        placeholder="Find Cars,Mobile Phones and More........"
+        name="search"
+        #search
+        [(ngModel)]="dservice.searchText"
+      />
+      <button mat-button matSuffix (click)="callSearch(search.value)">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field> -->
+
+    <button
+      *ngIf="!dservice.logged"
+      mat-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+      color="primary"
+      (click)="onlogin()"
+    >
+      LOGIN
+      <mat-icon>login</mat-icon>
+    </button>
+
+    <button
+      mat-flat-button
+      routerLink="/bikesell"
+      color="primary"
+      *ngIf="dservice.logged"
+    >
+      SELL
+    </button>
+
+    <button mat-icon-button color="primary" (click)="goToWishList()">
+      <mat-icon matBadgeColor="warn" matBadge="{{ dservice.wlCount }}"
+        >favorite_border</mat-icon
+      >
+    </button>
+    <button
+      *ngIf="dservice.logged"
+      routerLink="/posts"
+      (click)="logout()"
+      mat-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+      color="primary"
+    >
+      LOGOUT
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

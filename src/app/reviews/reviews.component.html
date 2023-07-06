@@ -1,0 +1,142 @@
+<div style="padding-left: 128px; padding-top: 16px">
+  <mat-card
+    class="productCard"
+    *ngFor="let newData of reviewData"
+    (click)="gotoReviewDetail(newData)"
+    style="width: 90%; padding-left: 32px"
+  >
+    <div fxLayout="row">
+      <div fxLayout="column">
+        <div>
+          <img src="{{newData.imgurl }}" alt="#" />
+        </div>
+      </div>
+      <div fxLayout="column">
+        <mat-card-content>
+          <div fxLayout="column" fxLayoutAlign="start start">
+            <h6>{{ newData.price | currency: "INR" }}</h6>
+            <p class="m-16-06">
+              {{ newData.make | titlecase }} &nbsp;|&nbsp;
+              {{ newData.model | titlecase }}
+            </p>
+            <div fxLayout="row row-wrap">
+              <p class="r-14">
+                Reg Yr.(
+                {{ newData.yearofreg }} )&nbsp;|&nbsp;
+              </p>
+              <p class="r-14">
+                {{ newData.bodyType | titlecase }}&nbsp; | &nbsp;
+              </p>
+              <p class="r-14">{{ newData.kms }}&nbsp; | &nbsp;</p>
+              <p class="r-14">{{ newData.mode | titlecase }}&nbsp; | &nbsp;</p>
+              <p class="r-14">
+                {{ newData.engine | titlecase }}&nbsp; | &nbsp;
+              </p>
+              <p class="r-14">{{ newData.fuel | titlecase }}&nbsp; | &nbsp;</p>
+            </div>
+          </div>
+          <br />
+          <p class="m-16-06">
+            {{ newData.description | titlecase }}
+          </p>
+        </mat-card-content>
+        <mat-card-footer style="margin: 0; padding: 0 32px">
+          <div
+            fxLayout="row row-wrap"
+            fxLayoutGap="16px"
+            fxLayoutAlign="start center"
+          >
+            <p class="r-12-v1">
+              {{ newData.sellerInfo | titlecase }}
+            </p>
+            <mat-icon>location_on</mat-icon>
+            <p class="r-12-v1">
+              {{ newData.location | titlecase }}({{ newData.distance }}) &nbsp;
+            </p>
+            <p class="r-12-v1">{{ newData.pincode | titlecase }}</p>
+          </div>
+          <div>
+              <mat-icon color="warn"
+              *ngFor="let rate of ratingArray; 
+              let index as i">
+                {{showIcon(index)}}
+              </mat-icon>
+          </div>
+        </mat-card-footer>
+      </div>
+    </div>
+  </mat-card>
+</div>
+<!-- <div style="padding-left: 128px; padding-top: 16px; padding-bottom: 16px" *ngIf="selling">
+  <mat-card
+    class="productCard"
+    *ngFor="let newData of sellingAuto"
+    (click)="gotoReviewDetail(newData)"
+    style="width: 90%; padding-left: 32px"
+  >
+    <div fxLayout="row">
+      <div fxLayout="column">
+        <div>
+          <img style="height: 300px" src="{{ newData.imgurl }}" alt="#" />
+        </div>
+      </div>
+      <div fxLayout="column">
+        <mat-card-content>
+          <div fxLayout="column" fxLayoutAlign="start start">
+            <h6>{{ newData.price | currency: "INR" }}</h6>
+            <p class="m-16-06">
+              {{ newData.make | titlecase }} &nbsp;|&nbsp;
+              {{ newData.model | titlecase }}
+            </p>
+            <div fxLayout="row row-wrap">
+              <p class="r-14">
+                Reg Yr.(
+                {{ newData.yearofreg }} )&nbsp;|&nbsp;
+              </p>
+              <p class="r-14">
+                {{ newData.bodyType | titlecase }}&nbsp; | &nbsp;
+              </p>
+              <p class="r-14">{{ newData.kms }}&nbsp; | &nbsp;</p>
+              <p class="r-14">{{ newData.mode | titlecase }}&nbsp; | &nbsp;</p>
+              <p class="r-14">
+                {{ newData.engine | titlecase }}&nbsp; | &nbsp;
+              </p>
+              <p class="r-14">{{ newData.fuel | titlecase }}&nbsp; | &nbsp;</p>
+            </div>
+          </div>
+          <br />
+          <p class="m-16-06">
+            {{ newData.description | titlecase }}
+          </p>
+        </mat-card-content>
+        <mat-card-footer style="margin: 0; padding: 0 32px">
+          <div
+            fxLayout="row row-wrap"
+            fxLayoutGap="16px"
+            fxLayoutAlign="start center"
+          >
+            <p class="r-12-v1">
+              {{ newData.sellerInfo | titlecase }}
+            </p>
+            <mat-icon>location_on</mat-icon>
+            <p class="r-12-v1">
+              {{ newData.location | titlecase }}({{ newData.distance }}) &nbsp;
+            </p>
+            <p class="r-12-v1">{{ newData.pincode | titlecase }}</p>
+          </div>
+          <div>
+            <button
+              mat-icon-button
+              color="warn"
+              *ngFor="let rate of service2.ratingArray; let index; as: i"
+            >
+              <mat-icon>
+                {{ service2.showIcon(index) }}
+              </mat-icon>
+            </button>
+          </div>
+        </mat-card-footer>
+      </div>
+    </div>
+  </mat-card>
+</div> -->

@@ -1,0 +1,53 @@
+<div *ngIf="dservice.searchData.length > 0 && !dservice.isSearchResFound">
+  <div
+    fxLayout="row row-wrap"
+    fxLayoutAlign="start start"
+    class="productWrapper"
+  >
+    <mat-card class="catcard" *ngFor="let data of filterCategory(siteData) |searchPipe:dservice.searchText ;let i=index">
+      <img mat-card-image src="{{ data.imgurl }}" alt="Photo of the bike" />
+      <mat-card-content>
+        <div fxLayout="row" fxLayoutAlign="space-between start">
+          <h4>Rs.{{ data.price }} /-</h4>
+          <button
+                mat-icon-button
+                *ngIf="!data.isFav"
+                (click)="addToWishList(data)"
+              >
+                <mat-icon>favorite_border</mat-icon>
+              </button>
+
+              <button
+                mat-icon-button
+                *ngIf="data.isFav"
+                (click)="remove(data, i)"
+              >
+                <mat-icon>favorite</mat-icon>
+              </button>
+        </div>
+        <p class="r-14">{{ data.model | titlecase }}</p>
+        <p class="m-16-06">{{ data.name | titlecase }}</p>
+        <p class="m-16-06">{{ data.location | titlecase }}</p>
+        <h6 class="desc">{{ data.description | titlecase }}</h6>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<br />
+<br />
+<br />
+<div
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  *ngIf="dservice.searchData?.length == 0 && !dservice.isSearchResFound"
+>
+  <div style="text-align: center">
+    <h6>Oops... we didn't find anything that matches this search :(</h6>
+    <p class="r-14">
+      Try search for something more general, change the filters or check for
+      spelling mistakes
+    </p>
+    <mat-icon class="icon" color="warn">sentiment_dissatisfied</mat-icon>
+  </div>
+</div>

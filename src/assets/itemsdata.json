@@ -1,0 +1,175 @@
+[
+  {
+    "id": 1,
+    "isFav": false,
+    "name": "bullet",
+    "category": "bikes",
+    "model": "2019",
+    "price": "90,000",
+    "description": "Royal Enfield bike price starts from Rs. 1,47,910.",
+    "imgurl": "../../assets/bikes/bullet/bullet1.webp",
+    "location": "hyderabad",
+    "description1": "Royal Enfield Bullet 350 is powered by 346 cc engine.This Bullet 350 engine generates a power of 19.36 PS @ 5250 rpm and a torque of 28 Nm @ 4000 rpm.Royal Enfield Bullet 350 gets Drum brakes in the front and rear. The kerb weight of Bullet 350 is 191 Kg.Engine Display is 346 cc Max Power is  19.36 PS @ 5250 rpm Fuel Type is Petrol ABS is Single Channel"
+  },
+  {
+    "id": 2,
+    "isFav": false,
+    "name": "tvssport",
+    "category": "bikes",
+    "model": "2016",
+    "price": "70,000",
+    "description": "TVS Sport is a mileage bike available at a starting price of Rs. 61,568 in India. ",
+    "imgurl": "../../assets/bikes/bike2.jpg",
+    "location": "chennai",
+    "description1": "The TVS Sport is powered by a 109.7 cc air-cooled engine which produces of power. It has a fuel tank of 10 L and a . The TVS Sport starts at Rs 67,080 and goes up to Rs 69,043 (ex-showroom, Hyderabad). It is available in two variants"
+  },
+  {
+    "id": 3,
+    "isFav": false,
+    "name": "pulsar 180",
+    "category": "bikes",
+    "model": "2015",
+    "price": "75,000",
+    "description": "Bajaj Auto has introduced the BS6-compliant Pulsar 180 naked roadster.  ",
+    "imgurl": "../../assets/bikes/bike3.webp",
+    "location": "banglore",
+    "description1": "The Bajaj Pulsar 180 comes with the same set of features as the Pulsar 150 Twin disc. It gets a halogen headlamp with twin pilot lamps and a LED tail light. The motorcycle uses semi-digital instrument clusters. For optimum safety, it gets a single-channel ABS as standard. At 15 litres,  the fuel tank is fairly large, making the motorcycle ideal for long-distance trips"
+  },
+  {
+    "id": 4,
+    "isFav": false,
+    "name": "maruti suzuki",
+    "category": "cars",
+    "model": "2012",
+    "price": "3,55,023",
+    "description": "The Maruti Suzuki Alto K10 is available in 6 variants and 6 colours. ",
+    "imgurl": "../../assets/cars/car1.jpeg",
+    "location": "chennai",
+    "description1": "The evergreen Maruti Suzuki Alto 800 received a significant update and has dropped the ‘800’ from its name in the process. In addition to the exterior and interior revisions, the refreshed Maruti Alto is now compliant with India’s latest safety standards. Its 796cc engine has also been made BS-VI emission norms-ready, ensuring the Alto will remain on sale for a good few more years to come. The diminutive Alto is available in petrol and CNG versions but there's no automatic gearbox option. One among the most affordable cars on sale in India, the Alto offers Maruti’s peace-of-mind ownership experience for relatively little money."
+  },
+  {
+    "id": 5,
+    "isFav": false,
+    "name": "Jeep",
+    "category": "cars",
+    "model": "2015",
+    "price": "3,50,200",
+    "description": "Its fully modified jeep converted into with below modification turbo engine.",
+    "imgurl": "../../assets/cars/car2.webp",
+    "location": "hyderabad",
+    "description1": "jexfcjhgvkjcdbvhbvhc dfvdhvdhc chb rygyubecgtyvedevhvc 3eyvgeftyefy cygyugrefgghv chcbeyre hbyu geryrgjhgbcybfyrryuerrefbntvbbvugbfuybfgyuguyrgyehfgyhefybv7v 87y78fh877f8brydfuyutgryhghrbyfbv7y78h78tjuh7rfhfygfg7ygr4urg74rg7urrfjr"
+  },
+  {
+    "id": 6,
+    "isFav": false,
+    "name": "Tata Nano",
+    "category": "cars",
+    "model": "2014",
+    "price": "1,50,000",
+    "description": "Tata Nano Twist XTpower steering power window Central lock system model.",
+    "imgurl": "../../assets/cars/car3.webp",
+    "location": "mumbai"
+  },
+
+  {
+    "id": 7,
+    "isFav": false,
+    "name": "iphone",
+    "category": "mobiles",
+    "model": "iphoneX",
+    "price": "20,000",
+    "description": "Box and charger and bill available",
+    "imgurl": "../../assets/mobiles/iphone1.webp",
+    "location": "pune"
+  },
+  {
+    "id": 8,
+    "isFav": false,
+    "name": "Vivo",
+    "category": "mobiles",
+    "model": "Vivo V21",
+    "price": "17,500",
+    "description": " 5G 8GB/128GB Box Open Condition,Bill, Charger.",
+    "imgurl": "../../assets/mobiles/vivo.webp",
+    "location": "chennai"
+  },
+  {
+    "id": 9,
+    "isFav": false,
+    "name": "iphone",
+    "category": "mobiles",
+    "model": "iphoneX",
+    "price": "19,000",
+    "description": "Box and charger and bill available and good condition",
+    "imgurl": "../../assets/mobiles/mobile3.webp",
+    "location": "hyderabad"
+  },
+
+  {
+    "id": 10,
+    "isFav": false,
+    "name": "Villa",
+    "category": "homes",
+    "model": "4BHk",
+    "price": "69,00,000",
+    "description": "Villa with beautiful environment and more space for gardening",
+    "imgurl": "../../assets/housesale/house1.webp",
+    "location": "pune"
+  },
+  {
+    "id": 11,
+    "isFav": false,
+    "name": "LargeHouse",
+    "category": "homes",
+    "model": "4BHk-Back-lawn",
+    "price": "55,00,000",
+    "description": "House with Backside lawn and beautiful surroundings",
+    "imgurl": "../../assets/housesale/house2.webp",
+    "location": "mumbai"
+  },
+  {
+    "id": 12,
+    "isFav": false,
+    "name": "Building",
+    "category": "homes",
+    "model": "2BHK-two floors",
+    "price": "35,00,000",
+    "description": "Building with good environment and nearby all",
+    "imgurl": "../../assets/housesale/house3.webp",
+    "location": "pune"
+  },
+
+  {
+    "id": 13,
+    "isFav": false,
+    "name": "Samsung Microwave",
+    "category": "electronics",
+    "model": "Samsung",
+    "price": "9,000",
+    "description": "Now own a Samsung microwave at the comfort of your home, in perfect working condition",
+    "imgurl": "../../assets/electronics/elect1.webp",
+    "location": "banglore"
+  },
+  {
+    "id": 14,
+    "isFav": false,
+    "name": "Preeti Stove",
+    "category": "electronics",
+    "model": "Preeti",
+    "price": "4,000",
+    "description": "One year old, by new one, home delivery available.",
+    "imgurl": "../../assets/electronics/elect2.webp",
+    "location": "hyderabad"
+  },
+  {
+    "id": 15,
+    "isFav": false,
+    "name": "Sewing machine",
+    "category": "electronics",
+    "model": "Usha",
+    "price": "1,500",
+    "description": "machine with good condition and working properly",
+    "imgurl": "../../assets/electronics/elect3.webp",
+    "location": "mumbai"
+  }
+]

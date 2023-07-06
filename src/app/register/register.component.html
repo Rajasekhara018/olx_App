@@ -1,0 +1,77 @@
+<div>
+  <div fxFlex="100" fxLayout="row" fxLayoutAlign="center start" class="card">
+    <mat-card class="cSize">
+      <mat-card-content>
+        <mat-card-title class="align">Register</mat-card-title>
+        <form #loginform="ngForm" (ngSubmit)="onRegister(loginform.value)">
+          <div>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Email"
+                type="email"
+                required
+                name="email"
+                [(ngModel)]="regObj.email"
+                #email="ngModel"
+                pattern="^([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]\@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(gmail)\.[a-zA-Z](-?[a-zA-Z])+$"
+              />
+              <mat-error *ngIf="email.errors?.['required']">
+                enter your email</mat-error
+              >
+              <mat-error *ngIf="email.touched && !email.valid"
+                >Enter a valid email</mat-error
+              >
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Password"
+                type="password"
+                minlength="8"
+                required
+                name="password"
+                [(ngModel)]="regObj.password"
+                [type]="hide1 ? 'password' : 'text'"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                #password="ngModel"
+              />
+              <mat-error *ngIf="password.errors?.['required']">
+                password is required</mat-error
+              >
+              <mat-error *ngIf="password.touched && !password.valid"
+                >Enter a valid password</mat-error
+              >
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="hide1 = !hide1"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{
+                  hide1 ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="!loginform.valid"
+            (click)="registerSnacebar()"
+          >
+            REGISTER
+          </button>
+          <br />
+          <br />
+          <!-- <button mat-raised-button color="access" (click)="goto()">
+            GO TO LOGIN
+          </button> -->
+        </form>
+      </mat-card-content></mat-card
+    >
+  </div>
+</div>

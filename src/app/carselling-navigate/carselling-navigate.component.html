@@ -1,0 +1,131 @@
+<form
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  #productAuto="ngForm"
+  (ngSubmit)="sellingAuto(productAuto.value)"
+  *ngIf="!success"
+>
+  <h1 class=".m-16-06" style="margin-top: 24px"><i>FILL THE CAR DETAILS</i></h1>
+  <div fxLayout="row" fxLayoutGap="40px">
+    <mat-form-field appearance="outline" style="width: 250px">
+      <mat-label>SellerInfo</mat-label>
+      <input matInput ngModel placeholder="Ex:PTN traders" name="sellerInfo" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 250px">
+      <mat-label>Make</mat-label>
+      <mat-select ngModel name="make">
+        <mat-option value="audi">Audi</mat-option>
+        <mat-option value="ford">Ford</mat-option>
+        <mat-option value="bmw">BMW</mat-option>
+        <mat-option value="benz">Benz</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="40px">
+    <mat-form-field appearance="outline" style="width: 250px">
+      <mat-label>Model</mat-label>
+      <input matInput ngModel placeholder="Ex:2017 model" name="model" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 250px">
+      <mat-label>Reg.year</mat-label>
+      <input matInput ngModel name="yearofreg" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="40px">
+    <mat-form-field appearance="outline" style="width: 250px">
+      <mat-label>BodyType</mat-label>
+      <mat-select ngModel name="bodyType">
+        <mat-option value="hatchback">Hatchback</mat-option>
+        <mat-option value="coupe">Coupe</mat-option>
+        <mat-option value="convertible">Convertible</mat-option>
+        <mat-option value="crossover">Crossover</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 250px">
+      <mat-label>Milage</mat-label>
+      <input matInput ngModel placeholder="EX:10000 miles/year" name="kms" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="40px">
+    <mat-form-field appearance="outline" style="width: 250px">
+      <mat-label>Mode</mat-label>
+      <mat-select ngModel name="mode">
+        <mat-option value="manual">Manual</mat-option>
+        <mat-option value="automation">Automation</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 250px">
+      <mat-label>FuelCapacity</mat-label>
+      <input matInput ngModel placeholder="Ex:1.2l" name="engine" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="40px">
+    <mat-form-field appearance="outline" style="width: 250px">
+      <mat-label>FuelType</mat-label>
+      <mat-select ngModel name="fuel">
+        <mat-option value="hatchback">Petrol</mat-option>
+        <mat-option value="coupe">Diesel</mat-option>
+        <mat-option value="petrol,diesel">Petrol&Diesel</mat-option>
+        <mat-option value="electric">Electric</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 250px">
+      <mat-label>Price</mat-label>
+      <input matInput ngModel placeholder="Ex:2500000" name="price" />
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutGap="40px">
+    <mat-form-field appearance="outline" style="width: 250px">
+      <mat-label>Location</mat-label>
+      <input
+        matInput
+        type="location"
+        placeholder="hyderabad"
+        ngModel
+        name="location"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline" style="width: 250px">
+      <mat-label>Pincode</mat-label>
+      <input
+        matInput
+        type="pincode"
+        placeholder="500037"
+        ngModel
+        name="pincode"
+      />
+    </mat-form-field>
+  </div>
+  <mat-form-field appearance="outline" style="width: 540px">
+    <mat-label>Image Path</mat-label>
+    <input matInput type="text" ngModel placeholder="url" name="imgurl" />
+  </mat-form-field>
+  <mat-form-field appearance="outline" style="width: 540px">
+    <mat-label>description</mat-label>
+    <textarea matInput ngModel name="description"></textarea>
+  </mat-form-field>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    value="submit"
+    style="width: 270px; height: 48px"
+    [disabled]="productAuto.form.invalid"
+  >
+    SUBMIT
+  </button>
+</form>
+<div
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  style="margin: 10px"
+  *ngIf="success"
+>
+  <img src="../../assets/car sellingsuccess.jpg" alt="#" />
+  <h1 style="font-size: 24px; color: aqua">
+    You successfully Added your car...click below to navigate
+  </h1>
+  <button mat-raised-button routerLink="/reviews">
+    <mat-icon class="material-symbols-outlined"> arrow_forward</mat-icon>
+  </button>
+</div>

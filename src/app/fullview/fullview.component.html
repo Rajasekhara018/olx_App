@@ -1,0 +1,36 @@
+<div
+  fxLayout="row row-wrap"
+  fxLayoutAlign="start start"
+  class="productWrapper1"
+>
+  <mat-card
+    class="catcard1"
+    *ngFor="let data of dservice.fullview; let i = index"
+  >
+    <img mat-card-image src="{{ data.imgurl }}" alt="Photo of the bike" />
+    <mat-card-content>
+      <div fxLayout="row" fxLayoutAlign="space-between start">
+        <h1>Price:Rs.{{ data.price }} /-</h1>
+        <div>
+          <button mat-icon-button>chat</button>
+          <button
+            mat-icon-button
+            *ngIf="!data.isFav"
+            (click)="addToWishList(data)"
+          >
+            <mat-icon>favorite_border</mat-icon>
+          </button>
+
+          <button mat-icon-button *ngIf="data.isFav" (click)="remove(data, i)">
+            <mat-icon>favorite</mat-icon>
+          </button>
+        </div>
+      </div>
+      <p class="m-16-06">{{ data.name | titlecase }}</p>
+      <p class="m-16-06">{{ data.location | titlecase }}</p>
+      <mat-divider></mat-divider>
+      <h1 class="desc">Description:</h1>
+      <h3>{{ data.description1 }}</h3>
+    </mat-card-content>
+  </mat-card>
+</div>

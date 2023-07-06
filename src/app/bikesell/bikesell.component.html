@@ -1,0 +1,47 @@
+<div style="margin-left: 40%">
+  <form
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    #product="ngForm"
+    (ngSubmit)="onsell(product.value)"
+  >
+    <h1>Place your Ad here</h1>
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select ngModel name="category">
+        <mat-option value="bikes">Bikes</mat-option>
+        <mat-option value="cars">Cars</mat-option>
+        <mat-option value="mobiles">Mobiles</mat-option>
+        <mat-option value="houses">Homes</mat-option>
+        <mat-option value="electronics">Electronics</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Name of the Product</mat-label>
+      <input matInput ngModel name="name" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Model</mat-label>
+      <input matInput type="number" ngModel name="model" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput type="currency" ngModel name="price" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Location</mat-label>
+      <input matInput type="location" ngModel name="location" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>description</mat-label>
+      <textarea matInput ngModel name="description"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Image Page</mat-label>
+      <input matInput type="text" ngModel name="imgurl" />
+    </mat-form-field>
+    <button mat-button color="primary" type="submit" value="submit">
+      submit
+    </button>
+  </form>
+</div>

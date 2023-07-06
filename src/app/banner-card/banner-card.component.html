@@ -1,0 +1,101 @@
+<mat-drawer-container>
+  <mat-drawer-content>
+    <div fxLayout="row" fxLayoutAlign="center start" class="main_div">
+      <mat-card class="card">
+        <mat-card fxFlex="50" style="border-radius: 8px; padding: 24px">
+          <form #banner="ngForm" (ngSubmit)="multiSearch(banner.value)">
+            <div fxLayoutAlign="center center">
+              <h1>Find your perfect car</h1>
+            </div>
+            <div></div>
+            <div fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="32px">
+              <mat-form-field appearance="outline">
+                <mat-label>Pincode</mat-label>
+                <input
+                  matInput
+                  maxlength="6"
+                  placeholder="Ex.500002"
+                  ngModel
+                  name="pincode"
+                />
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Location</mat-label>
+                <mat-select disableRipple ngModel name="location">
+                  <mat-option value="null">None</mat-option>
+                  <mat-option value="hyderabad">Hyderabad</mat-option>
+                  <mat-option value="banglore">Banglore</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <br />
+            <div fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="32px">
+              <mat-form-field appearance="outline">
+                <mat-label>Make</mat-label>
+                <mat-select disableRipple ngModel name="make">
+                  <mat-option value="Audi">Audi</mat-option>
+                  <mat-option value="BMW">BMW</mat-option>
+                  <mat-option value="Ford">Ford</mat-option>
+                  <mat-option value="Mercedes-Benz">Mercedes-Benz</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Distance</mat-label>
+                <mat-select disableRipple ngModel name="distance">
+                  <mat-option value="within 5 miles">within 5 miles</mat-option>
+                  <mat-option value="within 10 miles"
+                    >within 10 miles</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div fxLayoutAlign="center center">
+              <button
+                mat-flat-button
+                color="primary"
+                type="submit"
+                style="width: 200px; margin-top: 50px"
+              >
+                SEARCH
+              </button>
+            </div>
+            <div fxLayoutAlign="center center">
+              <h4
+                style="color: red; margin-top: 24px"
+                *ngIf="
+                  service2.searchResult && service2.multiSearchData.length == 0
+                "
+              >
+                No match found for the search
+              </h4>
+            </div>
+          </form>
+        </mat-card>
+      </mat-card>
+    </div>
+    <mat-card style="margin: 100px; padding: 40px 40px 60px">
+      <mat-card-title fxLayoutAlign="center center" class="card3"
+        >Browse by brand</mat-card-title
+      >
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="24px">
+        <mat-card
+          fxFlex="20"
+          fxLayout="column"
+          fxLayoutAlign="center center"
+          class="mat-elevation-z4 browseBycard"
+          *ngFor="let b of browse"
+          (click)="browseByFn(b.name)"
+        >
+          <img src="{{ b.imgPath }}" />
+          <br />
+          <mat-card-title>{{ b.name }}</mat-card-title>
+        </mat-card>
+
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
+    </mat-card>
+  </mat-drawer-content>
+</mat-drawer-container>

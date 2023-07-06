@@ -1,0 +1,289 @@
+<mat-drawer-container *ngIf="!bookValue &&!bookingComplete">
+  <mat-drawer-content style="padding: 120px">
+    <div fxLayout="row" fxLayoutGap="24px">
+      <div fxLayout="column" fxFlex="20">
+        <div class="left-pane">
+          <h6>{{ service2.multiSearchData.length }} for sale</h6>
+          <br />
+          <form #banner="ngForm" (ngSubmit)="multiSearch(banner.value)">
+            <div fxLayout="column">
+              <mat-form-field appearance="outline">
+                <mat-label>Pincode</mat-label>
+                <input
+                  matInput
+                  maxlength="6"
+                  placeholder="Ex.500002"
+                  [(ngModel)]="catObj.pincode"
+                  name="pincode"
+                />
+              </mat-form-field>
+              <br />
+              <mat-form-field appearance="outline">
+                <mat-label>Location</mat-label>
+                <mat-select
+                  disableRipple
+                  [(ngModel)]="catObj.location"
+                  name="location"
+                >
+                  <mat-option value="hyderabad">Hyderabad</mat-option>
+                  <mat-option value="banglore">Banglore</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br />
+              <mat-form-field appearance="outline">
+                <mat-label>Make</mat-label>
+                <mat-select disableRipple [(ngModel)]="catObj.make" name="make">
+                  <mat-option value="Audi">Audi</mat-option>
+                  <mat-option value="BMW">BMW</mat-option>
+                  <mat-option value="Ford">Ford</mat-option>
+                  <mat-option value="Mercedes-Benz">Mercedes-Benz</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <br />
+              <mat-form-field appearance="outline">
+                <mat-label>Distance</mat-label>
+                <mat-select
+                  disableRipple
+                  [(ngModel)]="catObj.distance"
+                  name="distance"
+                >
+                  <mat-option value="within 5 miles">within 5 miles</mat-option>
+                  <mat-option value="within 10 miles"
+                    >within 10 miles</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div fxLayoutAlign="center center">
+              <button
+                type="button"
+                mat-stroked-button
+                color="primary"
+                type="submit"
+                style="width: 200px; margin-top: 50px"
+              >
+                SEARCH
+              </button>
+            </div>
+            <div fxLayoutAlign="center center">
+              <p
+                style="color: red; margin-top: 24px"
+                *ngIf="
+                  service2.searchResult && service2.multiSearchData?.length == 0
+                "
+              >
+                No match found for the search
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div fxLayout="column" fxFlex="80">
+        <div *ngIf="service2.multiSearchData.length > 0">
+          <div>
+            <mat-card
+              class="productCard"
+              *ngFor="let newData of service2.multiSearchData"
+              
+            >
+              <div fxLayout="row">
+                <div fxLayout="column">
+                  <div>
+                    <img src="{{ newData.imgurl }}" alt="#" />
+                  </div>
+                </div>
+                <div fxLayout="column">
+                  <mat-card-content>
+                    <div fxLayout="column" fxLayoutAlign="start start">
+                      <h6>{{ newData.price | currency: "INR" }}</h6>
+                      <p class="m-16-06">
+                        {{ newData.make | titlecase }} &nbsp;|&nbsp;
+                        {{ newData.model | titlecase }}
+                      </p>
+                      <div fxLayout="row row-wrap">
+                        <p class="r-14">
+                          Reg Yr.(
+                          {{ newData.yearofreg }} )&nbsp;|&nbsp;
+                        </p>
+                        <p class="r-14">
+                          {{ newData.bodyType | titlecase }}&nbsp; | &nbsp;
+                        </p>
+                        <p class="r-14">{{ newData.kms }}&nbsp; | &nbsp;</p>
+                        <p class="r-14">
+                          {{ newData.mode | titlecase }}&nbsp; | &nbsp;
+                        </p>
+                        <p class="r-14">
+                          {{ newData.engine | titlecase }}&nbsp; | &nbsp;
+                        </p>
+                        <p class="r-14">
+                          {{ newData.fuel | titlecase }}&nbsp; | &nbsp;
+                        </p>
+                      </div>
+                    </div>
+                    <br />
+                    <p class="m-16-06">
+                      {{ newData.description | titlecase }}
+                    </p>
+                  </mat-card-content>
+                  <mat-card-footer style="margin: 0; padding: 0 32px">
+                    <div
+                      fxLayout="row row-wrap"
+                      fxLayoutGap="16px"
+                      fxLayoutAlign="start center"
+                    >
+                      <p class="r-12-v1">
+                        {{ newData.sellerInfo | titlecase }}
+                      </p>
+                      <mat-icon>location_on</mat-icon>
+                      <p class="r-12-v1">
+                        {{ newData.location | titlecase }}({{
+                          newData.distance
+                        }}) &nbsp;
+                      </p>
+                      <p class="r-12-v1">{{ newData.pincode | titlecase }}</p>
+                    </div>
+                    <div fxLayout="row" fxLayoutGap="10px">
+                      <button mat-raised-button color="primary" (click)="booking()">BOOK YOUR TRIAL</button>
+                      <button mat-raised-button color="primary" (click)="carbooking(newData)">BUY NOW</button>
+                    </div>
+                  </mat-card-footer>
+                </div>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+<mat-drawer-container *ngIf="bookValue && !bookingComplete">
+  <mat-drawer-content style="padding: 120px">
+    <div fxLayout="row" fxLayoutAlign="center center" >
+      <h4 style="margin-top: 24px">
+        Book Your Trail and know the Car Condition
+      </h4>
+    </div>
+    <div style="margin-top: 24px">
+      <form
+        fxLayout="column"
+        fxLayoutAlign="center center"
+        class="example-form"
+        name="bookingForm"
+        #bookingForm="ngForm"
+        (ngSubmit)="onBook(bookingForm.value)"
+      >
+        <mat-form-field appearance="outline" style="width: 540px">
+          <mat-label>Name</mat-label>
+          <input
+            type="text"
+            matInput
+            placeholder="Ex.Sanju"
+            name="name"
+            [(ngModel)] = "bookingObj.name"
+            #uname = "ngModel"
+            required
+            pattern="^[a-zA-Z\s]{1,10}"
+          />
+          <mat-error *ngIf="uname.errors?.['required']">
+            enter your name</mat-error
+          >
+          <mat-error *ngIf="uname.errors?.['pattern']"
+            >Enter only Alphabets</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 540px">
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            placeholder="Ex.ksanj.....23@gmail.com"
+            name="email"
+            [(ngModel)] = "bookingObj.email"
+            #uemail = "ngModel" required
+            pattern="[a-zA-z0-9.]+@[a-zA-z]+\.[a-zA-z]{2,3}"
+          />
+          <mat-error *ngIf="uemail.errors?.['required']">
+            Email is required</mat-error
+          >
+          <mat-error *ngIf="uemail.errors?.['pattern']"
+            >Enter a valid email</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 540px">
+          <mat-label>Ph.Number</mat-label>
+          <input
+            type="tel"
+            maxlength="10"
+            matInput
+            placeholder="Ex.70......78"
+            name="phone"
+            [(ngModel)] = "bookingObj.phone"
+            #uphone = "ngModel" required
+            pattern="[0-9]{10}"
+          />
+          <mat-error *ngIf="uphone.errors?.['required']">
+            phone number is required</mat-error
+          >
+          <mat-error *ngIf="uphone.errors?.['pattern']"
+            >Enter a valid phone number</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 540px">
+          <mat-label>Location</mat-label>
+          <input
+            type="location"
+            matInput
+            placeholder="Ex.hyderabad"
+            name="location"
+            [(ngModel)] = "bookingObj.location"
+            #uloc = "ngModel" required
+          />
+          <mat-error *ngIf="uloc.errors?.['required']">
+            location is required</mat-error
+          >
+        </mat-form-field>
+        <button
+          mat-raised-button
+          [disabled]="bookingForm.invalid"
+          color="primary"
+          type="submit"
+        >
+          BOOK NOW
+        </button>
+      </form>
+    </div>  
+  </mat-drawer-content>
+</mat-drawer-container>
+<mat-drawer-container *ngIf="bookingComplete">
+  <mat-drawer-content style="padding:20px">
+    <div
+  fxLayout="column"
+  fxLayoutAlign="center center"
+  *ngIf="bookingComplete"
+>
+<mat-card>
+  <img src="../../assets/cars/bookcarimage.jpg" alt="#" />
+  <div fxLayout="column">
+    <h1>Thank You......</h1>
+    <p class="m-16-06">Our Dealer will contact you for further process</p>
+    <br>
+    <br>
+    <br>
+    <div fxLayout="column" >
+        <p class="m-16-06">Dealer details</p>
+        <mat-divider></mat-divider>
+       <code>
+        Sales:NKR garden road,
+        Sector 245,
+        near GTR villa,Hyderabad.</code> 
+    </div>
+  </div>
+  <div fxLayoutAlign="end end">
+    <button mat-raised-button color="primary" routerLink="/bannercard"><mat-icon>home</mat-icon></button>
+  </div>
+</mat-card>
+</div>
+  </mat-drawer-content>
+</mat-drawer-container>
+  
